@@ -4,11 +4,7 @@ fmt:
 	go fmt ./...
 .PHONY:fmt
 
-lint: fmt
-	golint ./...
-.PHONY:lint
-
-imports: lint
+imports: fmt
 	goimports -w .
 .PHONY:imports
 
@@ -19,5 +15,3 @@ vet: imports
 build: vet
 	go build 
 .PHONY:build
-
-
